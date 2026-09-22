@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/title.png" alt="Bad Debt Prediction" width="900">
+  <img src="z_assets/title.png" alt="Bad Debt Prediction" width="900">
 </p>
 
 ---
