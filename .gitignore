@@ -1,0 +1,37 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary Excel/Office files
+~$*
+
+# DVC cache
+.dvc/cache/
+
+# DVC-managed dataset
+Bad debt prediction/datasets/data_BDP/credit_risk_master_table.csv
+
+# Files not required in Git
+ChatGPT Image Apr 22, 2026, 02_43_13 PM.png
+Non Disclosure Agreement.docx_signed.pdf
+Screenshot 2026-08-29 133716.png
+
+# Generated ML training outputs
+Bad debt prediction/Notebook/catboost_info/
+Bad debt prediction/Notebook/credit_risk_master_table_2.csv
+Bad debt prediction/Notebook/df_train.csv
+Bad debt prediction/Notebook/df_test.csv
+Bad debt prediction/Notebook/df_train_f1.csv
+Bad debt prediction/Notebook/df_test_f1.csv
+
+# Documentation not required in Git
+Bad debt prediction/datasets/Bad Debt Prediction Document.docx
+datasets/Bad Debt Prediction Document.docx
