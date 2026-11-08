@@ -38,9 +38,7 @@ This project addresses the challenge by developing a **Machine Learning–based 
 # 1. Data Profiling & Preparation
 
 **Dataset Understanding:** Started by exploring approximately **100,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history.
-
 **Data Quality Assessment:** Checked the dataset for missing values, duplicates, incorrect data types and invalid records. Removed **3,644 duplicate records (3.64%)** during the initial cleaning process.
-
 **Missing Value Investigation:** Found **30–40% missing values** in some features. Investigated their patterns and retained them where they represented meaningful business scenarios or the availability of customer information.
 
 **Domain-Level Investigation:** Reviewed the features in the context of lending and credit risk to understand what they represented and how customer details, loan characteristics and repayment behaviour could relate to default risk.
