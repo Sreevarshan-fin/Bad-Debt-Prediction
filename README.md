@@ -38,7 +38,9 @@ This project addresses the challenge by developing a **Machine Learning–based 
 # 1. Data Profiling & Preparation
 
 **Dataset Understanding:** Started by exploring approximately **100,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history.
+
 **Data Quality Assessment:** Checked the dataset for missing values, duplicates, incorrect data types and invalid records. Removed **3,644 duplicate records (3.64%)** during the initial cleaning process.
+
 **Missing Value Investigation:** Found **30–40% missing values** in some features. Investigated their patterns and retained them where they represented meaningful business scenarios or the availability of customer information.
 
 **Domain-Level Investigation:** Reviewed the features in the context of lending and credit risk to understand what they represented and how customer details, loan characteristics and repayment behaviour could relate to default risk.
@@ -63,12 +65,7 @@ This project addresses the challenge by developing a **Machine Learning–based 
 
 **Skewness Analysis:** Identified highly skewed financial features, particularly `PERSONAL_LOAN_AMT_CR22` (**110.71**) and `OVERDRAFT_AMT_CR22` (**103.22**).
 
-**Outlier Analysis:** Used the Interquartile Range (IQR) method to examine potential outliers. Some features showed relatively high outlier percentages:
-- `CLOSED_ACCT_CR22`: **24.11%**
-- `CREDIT_CARD_AMT_CR22`: **21.22%**
-- `Cumulative_Delinquency_Exposure`: **17.93%**
-
-Reviewed these observations in their business context and retained genuine high-value records rather than removing them solely because they were statistical outliers.
+**Outlier Analysis:** Used the Interquartile Range (IQR) method to examine potential outliers. Some features showed relatively high outlier percentages CLOSED_ACCT_CR22 **(24.11%)**, CREDIT_CARD_AMT_CR22 **(21.22%)**,Cumulative_Delinquency_Exposure **(17.93%)**. Reviewed these observations in their business context and retained genuine high-value records rather than removing them solely because they were statistical outliers.
 
 **Feature Selection:** Selected relevant features by considering statistical findings, lending domain knowledge, business relevance and their relationship with default risk. Grouped the selected features into four areas: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
 
