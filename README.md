@@ -33,7 +33,7 @@ In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves asses
 
 ### 1. Data Profiling & Preparation
 
-**Dataset Understanding:** Explored approximately **100,000+ records across 99 features**, containing customer details, loan information, credit bureau attributes and payment history.
+**Dataset Understanding:** Explored approximately **120,000 records across 99 features**, containing customer details, loan information, credit bureau attributes and payment history.
 
 **Data Quality Assessment:** Checked the dataset for missing values, duplicate records, incorrect data types and invalid entries. The initial cleaning process identified and removed **3,644 duplicate records (3.64%)**.
 
