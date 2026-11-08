@@ -27,17 +27,17 @@
 
 ### 📌 Problem Statement
 
-In a **Buy Now, Pay Later (BNPL)** business, approving a customer is not the end of the transaction—it is the beginning of a **credit risk**. When customers fail to repay their installments, businesses face **bad debt, revenue loss, and cash-flow pressure**.
+In a **Buy Now, Pay Later (BNPL)** business, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to bad debt, revenue loss and cash-flow pressure.
 
-Without a predictive system, identifying customers who are likely to default **before credit approval** is difficult. This creates a need for a data-driven approach that can assess customer credit behavior and identify potential risks in advance.
+Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach.
 
-This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** that identifies **high-risk customers before approval**, helping businesses make more informed lending decisions and strengthen **credit-risk management**.
+This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default. The objective is to support data-driven lending decisions and strengthen credit-risk management.
 
 ---
 
 ### 1. Data Profiling & Preparation
 
-**Dataset Understanding:** Started by exploring approximately **100,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history.
+**Dataset Understanding:** Started by exploring approximately **100,000++ records with 99 features**, covering customer details, loan information, credit bureau data and payment history.
 
 **Data Quality Assessment:** Checked the dataset for missing values, duplicates, incorrect data types and invalid records. Removed **3,644 duplicate records (3.64%)** during the initial cleaning process.
 
