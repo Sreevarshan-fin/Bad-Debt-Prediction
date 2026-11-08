@@ -27,29 +27,25 @@
 
 ### 📌 Problem Statement
 
-In a **Buy Now, Pay Later (BNPL)** business, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to bad debt, revenue loss and cash-flow pressure.
-
-Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach.
-
-This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default. The objective is to support data-driven lending decisions and strengthen credit-risk management.
+In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to bad debt, revenue loss and cash-flow pressure.Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach.This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default. The objective is to support data-driven lending decisions and strengthen credit-risk management.
 
 ---
 
 ### 1. Data Profiling & Preparation
 
-**Dataset Understanding:** Started by exploring approximately **100,000++ records with 99 features**, covering customer details, loan information, credit bureau data and payment history.
+**Dataset Understanding:** Explored approximately **100,000+ records across 99 features**, containing customer details, loan information, credit bureau attributes and payment history.
 
-**Data Quality Assessment:** Checked the dataset for missing values, duplicates, incorrect data types and invalid records. Removed **3,644 duplicate records (3.64%)** during the initial cleaning process.
+**Data Quality Assessment:** Checked the dataset for missing values, duplicate records, incorrect data types and invalid entries. The initial cleaning process identified and removed **3,644 duplicate records (3.64%)**.
 
-**Missing Value Investigation:** Found **30–40% missing values** in some features. Investigated their patterns and retained them where they represented meaningful business scenarios or the availability of customer information.
+**Missing Value Investigation:** Found **30–40% missingness** in selected features. Examined the missing-value patterns and retained them where they reflected meaningful business scenarios or the availability of customer information.
 
-**Domain-Level Investigation:** Reviewed the features in the context of lending and credit risk to understand what they represented and how customer details, loan characteristics and repayment behaviour could relate to default risk.
+**Domain-Level Investigation:** Studied the features in the context of lending and credit risk to understand their business meaning and relevance to customer default behaviour.
 
-**Data Integration:** Combined the customer, loan, credit bureau and additional information datasets using customer identifiers. Found **12,611 customer IDs** in the Additional Information dataset without matching credit-behaviour records. Excluded these records because the required behavioural information was unavailable.
+**Data Integration:** Combined customer, loan, credit bureau and additional information datasets using customer identifiers. Found **12,611 customer IDs** in the Additional Information dataset without corresponding credit-behaviour records. These unmatched records were excluded because the required behavioural information was unavailable.
 
-**Data Reconciliation:** During subsequent processing, identified and removed another **4,507 duplicate records**.
+**Data Reconciliation:** During subsequent processing, another **4,507 duplicate records** were identified and removed after the initial cleaning stage, reducing the dataset from **96,356 to 91,849 records**.
 
-**Final Dataset:** The resulting Credit Risk Master Table contained **91,849 records and 97 features**, which were used for further analysis and model development.
+**Final Dataset:** The resulting Credit Risk Master Table contained **91,849 records and 97 features**, forming the basis for further analysis and model development.
 
 ### 2. Exploratory Data Analysis (EDA)
 
