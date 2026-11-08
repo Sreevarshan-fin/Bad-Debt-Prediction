@@ -43,9 +43,7 @@ In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves asses
 
 **Data Integration:** Combined customer, loan, credit bureau and additional information datasets using customer identifiers. Found **12,611 customer IDs** in the Additional Information dataset without corresponding credit-behaviour records. These unmatched records were excluded because the required behavioural information was unavailable.
 
-**Data Reconciliation:** During subsequent processing, another **4,507 duplicate records** were identified and removed after the initial cleaning stage, reducing the dataset from **96,356 to 91,849 records**.
-
-**Final Dataset:** The resulting Credit Risk Master Table contained **91,849 records and 97 features**, forming the basis for further analysis and model development.
+**Final Dataset:** After the initial removal of 3,644 duplicates, a further **4,507 duplicate** records were identified and removed during subsequent processing, resulting in a Credit Risk Master Table containing **91,849 records** and **97 features** for further analysis and model development.
 
 ### 2. Exploratory Data Analysis (EDA)
 
