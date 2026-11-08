@@ -57,13 +57,8 @@ In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves asses
 
 **Payment Behaviour Analysis:** Examined repayment patterns, previous defaults and delinquency indicators to identify differences between Good Debt and Bad Debt customers.
 
-**Zero-Value Analysis:** Looked into features with a high proportion of zero values, such as `DEFAULT_AMT` (**95.27%**) and `DEFAULTS_12M` (**99.24%**), to understand whether these values reflected actual customer behaviour.
-
-**Skewness Analysis:** Identified highly skewed financial features, particularly `PERSONAL_LOAN_AMT_CR22` (**110.71**) and `OVERDRAFT_AMT_CR22` (**103.22**).
-
 **Outlier Analysis:** Used the Interquartile Range (IQR) method to examine potential outliers. Some features showed relatively high outlier percentages `CLOSED_ACCT_CR22` **(24.11%)**, `CREDIT_CARD_AMT_CR22` **(21.22%)**,`Cumulative_Delinquency_Exposure` **(17.93%)**. Reviewed these observations in their business context and retained genuine high-value records rather than removing them solely because they were statistical outliers.
 
 **Feature Selection:** Selected relevant features by considering statistical findings, lending domain knowledge, business relevance and their relationship with default risk. Grouped the selected features into four areas: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
 
-**Outcome:** Completed data profiling and exploratory analysis to understand the dataset, identify important patterns and prepare it for class-imbalance handling and credit-risk model development.
 
