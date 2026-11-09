@@ -113,6 +113,8 @@ Random Forest was selected over XGBoost due to its higher Bad Debt recall (81.39
 
 The final Random Forest model achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Key features included `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
 
+Business Interpretation: The model achieved 81.39% Bad Debt recall but only 12.04% precision, meaning many Good Debt customers were incorrectly flagged. This highlights the trade-off between reducing credit losses and avoiding unnecessary rejection of creditworthy customers.
+
 #### MLflow Experiment Tracking and Model Registry
 
 MLflow was used to track model experiments, compare performance and register the final selected Random Forest model for version management and reproducibility.
