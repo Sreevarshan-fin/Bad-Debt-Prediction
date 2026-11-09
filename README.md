@@ -30,7 +30,21 @@
 In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to **bad debt, revenue loss and cash-flow pressure**.Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach. This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default (Good or Bad).
 
 ---
+## 1. Data Profiling & Preparation
 
+Explored approximately **110,000 records across 99 features**, covering customer, loan, credit bureau and payment information. Assessed data quality by examining missing values, duplicates, data types and invalid entries, removing **3,644 duplicate records** during initial cleaning. Identified **30–40% missingness** in selected features and retained meaningful missing values based on business context. Examined lending-related features to understand their relevance to default behaviour.
+
+Integrated customer, loan, credit bureau and additional information datasets using customer identifiers. Excluded **12,611 unmatched customer IDs** and a further **1,896 unmatched records** during integration validation. The final Credit Risk Master Table contained **91,849 records and 99 features** for exploratory analysis and model development.
+
+## 2. Exploratory Data Analysis (EDA)
+
+Analysed the `OUTCOME` variable and identified class imbalance, comprising approximately **92% Good Debt and 8% Bad Debt**. Explored numerical and categorical feature distributions using descriptive statistics, histograms, boxplots and frequency distributions.
+
+Compared CR21 and CR22 credit bureau features across Good Debt and Bad Debt customers, observing clearer median separation in selected CR22 features. Examined repayment patterns, historical defaults and delinquency indicators to identify potential risk patterns. Applied the **Interquartile Range (IQR)** method for outlier analysis, identifying higher outlier percentages in `CLOSED_ACCT_CR22` (**24.11%**), `CREDIT_CARD_AMT_CR22` (**21.22%**) and `Cumulative_Delinquency_Exposure` (**17.93%**). Retained genuine observations based on business context rather than removing them solely as statistical outliers.
+
+Selected relevant features based on statistical analysis, feature behaviour and their relevance to default prediction, grouping them into four categories: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
+
+---------------
 ### 1. Data Profiling & Preparation
 
 **Dataset Understanding:** Explored approximately **120,000 records across 99 features**, containing customer details, loan information, credit bureau attributes and payment history.
