@@ -97,3 +97,12 @@ This project addresses this challenge by developing a **Machine Learning–based
 **Feature Selection:** Selected relevant features based on statistical findings, lending domain knowledge, business relevance and their relationship with default risk. Categorised them into four groups: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
 
 
+--
+
+## Problem Statement
+
+In the Buy Now, Pay Later (BNPL) lending industry, identifying customers with a high likelihood of default is critical to minimising bad debt, reducing financial losses and maintaining a healthy loan portfolio. However, assessing creditworthiness across diverse customer profiles, loan attributes, credit bureau information and historical repayment behaviour presents significant challenges.
+
+This project aims to develop a Machine Learning-based Bad Debt Prediction system that identifies high-risk customers by analysing multiple credit-risk indicators, enabling more informed lending decisions, improved default risk assessment and proactive credit-risk management.
+
+
