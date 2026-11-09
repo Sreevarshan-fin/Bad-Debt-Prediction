@@ -50,3 +50,16 @@ Compared **CR21 and CR22** credit bureau features across Good Debt and Bad Debt 
 Performed outlier analysis using the **Interquartile Range (IQR)** method. Higher outlier percentages were observed in `CLOSED_ACCT_CR22` (**24.11%**), `CREDIT_CARD_AMT_CR22` (**21.22%**) and `Cumulative_Delinquency_Exposure` (**17.93%**). Retained genuine high-value observations rather than removing them solely based on statistical outlier detection.
 
 Selected relevant features based on statistical findings, feature behaviour and their relevance to default prediction. Grouped the selected features into four categories: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
+
+### 3. Model Development
+
+The target variable showed class imbalance, with more Good Debt customers than Bad Debt customers. Applied **SMOTE-Tomek** after splitting the dataset into training, validation and test sets, using resampling only on the training data.
+
+Trained and evaluated **Random Forest, XGBoost and CatBoost** models, with threshold optimisation using validation data. Bad Debt recall achieved was **81.39% for Random Forest (0.26), 74.49% for XGBoost (0.10) and 85% for CatBoost (0.09)**.
+
+Model diagnostics showed no clear overfitting or underfitting in Random Forest and XGBoost, while CatBoost showed possible overfitting (training-to-validation ROC-AUC gap of **0.0601**). XGBoost's feature importance was also less aligned with the business context.
+
+Tracked model parameters and evaluation metrics using **MLflow** and registered the selected model in the Model Registry.
+
+Selected **Random Forest** for its overall classification performance and business relevance. It achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Its feature importance results highlighted relevant credit-risk indicators, including `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`. Although CatBoost achieved higher recall, Random Forest provided a suitable balance between identifying potential bad-debt customers and generalisation, making it the preferred model for further development
+
