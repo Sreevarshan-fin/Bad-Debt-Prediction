@@ -27,7 +27,7 @@
 
 ### 📌 Problem Statement
 
-In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to **bad debt, revenue loss and cash-flow pressure**.Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach.This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default. The objective is to support data-driven lending decisions and strengthen credit-risk management.
+In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves assessing the risk that they may fail to repay their instalments. Such defaults can lead to **bad debt, revenue loss and cash-flow pressure**.Identifying customers with a higher likelihood of default is essential for making informed lending decisions. However, assessing credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach. This project addresses the challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default (Good or Bad).
 
 ---
 
