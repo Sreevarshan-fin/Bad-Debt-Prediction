@@ -25,48 +25,6 @@
 
 ------
 
-
-
-### Problem Statement
-
-In a **Buy Now, Pay Later (BNPL) business**, assessing the likelihood of a customer defaulting on instalment payments is important for managing credit risk. Customer defaults can lead to bad debt, financial losses and cash-flow pressure.
-
-This project focuses on developing a **Machine Learning-based Bad Debt Prediction system** to identify customers with a higher likelihood of default by analysing customer details, loan information, credit bureau data and payment history. The objective is to classify customers into Good Debt and Bad Debt categories and support more informed lending decisions.
-
-### 1. Data Profiling & Preparation
-
-Explored approximately **110,000 records across 99 features**, covering customer details, loan information, credit bureau attributes and payment history. Assessed data quality by checking missing values, duplicates, data types and invalid entries. Removed **3,644 duplicate records** during the initial cleaning process.
-
-Identified **30–40% missingness** in selected features. Examined missing-value patterns and retained meaningful missing values where appropriate. Also reviewed lending-related features to understand their characteristics and relevance to default prediction.
-
-Integrated customer, loan, credit bureau and additional information datasets using customer identifiers. During integration, excluded **12,611 unmatched customer IDs** and a further **1,896 unmatched records** during validation. The final Credit Risk Master Table contained **91,849 records and 99 features**, which was used for further analysis and model development.
-
-### 2. Exploratory Data Analysis (EDA)
-
-Analysed the `OUTCOME` variable and identified class imbalance, with approximately **92% Good Debt and 8% Bad Debt**. Explored numerical and categorical features using descriptive statistics, histograms, boxplots and frequency distributions to understand their patterns and distributions.
-
-Compared **CR21 and CR22** credit bureau features across Good Debt and Bad Debt customers. Observed clearer median separation in selected CR22 features. Also examined repayment patterns, previous defaults and delinquency indicators to identify differences in payment behaviour between the two groups.
-
-Performed outlier analysis using the **Interquartile Range (IQR)** method. Higher outlier percentages were observed in `CLOSED_ACCT_CR22` (**24.11%**), `CREDIT_CARD_AMT_CR22` (**21.22%**) and `Cumulative_Delinquency_Exposure` (**17.93%**). Retained genuine high-value observations rather than removing them solely based on statistical outlier detection.
-
-Selected relevant features based on statistical findings, feature behaviour and their relevance to default prediction. Grouped the selected features into four categories: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
-
-### 3. Model Development
-
-The target variable showed class imbalance, with more Good Debt customers than Bad Debt customers. Applied **SMOTE-Tomek** after splitting the dataset into training, validation and test sets, using resampling only on the training data.
-
-Trained and evaluated **Random Forest, XGBoost and CatBoost** models, with threshold optimisation using validation data. Bad Debt recall achieved was **81.39% for Random Forest (0.26), 74.49% for XGBoost (0.10) and 85% for CatBoost (0.09)**.
-
-Model diagnostics showed no clear overfitting or underfitting in Random Forest and XGBoost, while CatBoost showed possible overfitting (training-to-validation ROC-AUC gap of **0.0601**). XGBoost's feature importance was also less aligned with the business context.
-
-Tracked model parameters and evaluation metrics using **MLflow** and registered the selected model in the Model Registry.
-
-Selected **Random Forest** for its overall classification performance and business relevance. It achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Its feature importance results highlighted relevant credit-risk indicators, including `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`. Although CatBoost achieved higher recall, Random Forest provided a suitable balance between identifying potential bad-debt customers and generalisation, making it the preferred model for further development
-
---------------------------
-
-# Bad Debt Prediction for a Buy Now, Pay Later (BNPL) Business
-
 ## Problem Statement
 
 In a **Buy Now, Pay Later business**, understanding how likely a customer is to default on instalment payments is central to managing credit risk. Defaults create bad debt, financial losses and cash-flow pressure.
