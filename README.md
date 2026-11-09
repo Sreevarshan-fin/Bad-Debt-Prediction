@@ -92,21 +92,31 @@ CR21 and CR22 credit bureau features were compared across the two customer group
 Features were selected based on statistical findings, observed behaviour and relevance to default prediction. They were grouped into four categories: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
 
 
+
 ## 3. Model Development
 
-To address class imbalance, SMOTE-Tomek was applied to the training data after splitting the dataset into training, validation and test sets. Validation and test data remained unchanged.Three models were trained: Random Forest, XGBoost and CatBoost. Decision thresholds were optimised using validation data.
+SMOTE-Tomek was applied exclusively to the training data after splitting the dataset into training, validation and test sets. Validation and test datasets remained unchanged.
 
-| Model         | Bad Debt Recall | Threshold | ROC-AUC |
-| ------------- | --------------- | --------- | ------- |
-| Random Forest | 81.39%          | 0.26      | 0.74    |
-| XGBoost       | 74.49%          | 0.10      | 0.69    |
-| CatBoost      | 85%             | 0.09      | 0.74    |
+Three models were developed and evaluated: Random Forest, XGBoost and CatBoost. Classification thresholds were optimised using validation data.
 
-Random Forest and XGBoost showed no clear signs of overfitting or underfitting. CatBoost showed possible overfitting, with a training-to-validation ROC-AUC gap of 0.0601. XGBoost feature importance that was more consistent with the business context.MLflow was used to track model experiments, compare performance and register the final selected model.
+| **Model** | **Bad Debt Recall** | **Threshold** | **ROC-AUC** |
+|---|---:|---:|---:|
+| Random Forest | 81.39% | 0.26 | 0.74 |
+| XGBoost | 74.49% | 0.10 | 0.69 |
+| CatBoost | 85.00% | 0.09 | 0.74 |
 
-#### **Selected Model: Random Forest**
+Random Forest and XGBoost showed no clear signs of overfitting or underfitting, while CatBoost showed potential overfitting, with a training-to-validation ROC-AUC gap of 0.0601.
 
-Random Forest was selected for further development, achieving a Bad Debt recall of 81.39%, a ROC-AUC of 0.7377 and a PR-AUC of 0.2620. Its feature importance results highlighted important credit-risk indicators, including `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
+#### Selected Model: Random Forest
 
-CatBoost achieved higher recall and a comparable ROC-AUC, but showed possible overfitting. Random Forest offered a suitable balance between identifying potential Bad Debt customers and generalising to unseen data, making it the preferred model.
+Random Forest was selected over XGBoost due to its higher Bad Debt recall (81.39% vs. 74.49%) and ROC-AUC (0.74 vs. 0.69). Although CatBoost achieved higher recall (85%), it showed potential overfitting.
 
+The final Random Forest model achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Key features included `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
+
+#### MLflow Experiment Tracking and Model Registry
+
+MLflow was used to track model experiments, compare performance and register the final selected Random Forest model for version management and reproducibility.
+
+**Screenshots:**
+- MLflow experiment comparison.
+- Registered Random Forest model in Model Registry.
