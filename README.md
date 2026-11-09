@@ -63,3 +63,49 @@ Tracked model parameters and evaluation metrics using **MLflow** and registered 
 
 Selected **Random Forest** for its overall classification performance and business relevance. It achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Its feature importance results highlighted relevant credit-risk indicators, including `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`. Although CatBoost achieved higher recall, Random Forest provided a suitable balance between identifying potential bad-debt customers and generalisation, making it the preferred model for further development
 
+--------------------------
+
+# Bad Debt Prediction for a Buy Now, Pay Later (BNPL) Business
+
+## Problem Statement
+
+In a Buy Now, Pay Later business, understanding how likely a customer is to default on instalment payments is central to managing credit risk. Defaults create bad debt, financial losses and cash-flow pressure.
+
+This project set out to build a machine learning-based Bad Debt Prediction system that flags customers with a higher likelihood of default. It draws on customer details, loan information, credit bureau data and payment history to classify customers as Good Debt or Bad Debt, helping the business make better-informed lending decisions.
+
+## 1. Data Profiling and Preparation
+
+I began by exploring roughly 110,000 records across 99 features, covering customer details, loan information, credit bureau attributes and payment history. Data quality was checked for missing values, duplicates, data types and invalid entries. The initial cleaning removed 3,644 duplicate records.
+
+Some features showed 30–40% missingness. I examined the patterns behind these gaps and kept them where they carried meaning, rather than filling them in by default. Lending-related features were also reviewed to understand their characteristics and their relevance to default prediction.
+
+The customer, loan, credit bureau and supplementary datasets were then merged using customer identifiers. This excluded 12,611 unmatched customer IDs, and a further 1,896 unmatched records were removed during validation. The resulting Credit Risk Master Table held 91,849 records and 99 features, and formed the basis for all later analysis and modelling.
+
+## 2. Exploratory Data Analysis (EDA)
+
+The OUTCOME variable showed clear class imbalance, with about 92% of customers classed as Good Debt and 8% as Bad Debt. Numerical and categorical features were examined through descriptive statistics, histograms, boxplots and frequency distributions to understand their patterns.
+
+CR21 and CR22 credit bureau features were compared across the two customer groups, and several CR22 features showed a clearer difference in medians. Repayment patterns, previous defaults and delinquency indicators were also reviewed to see how payment behaviour differed between Good Debt and Bad Debt customers.
+
+Outliers were assessed using the Interquartile Range (IQR) method. The highest outlier percentages appeared in CLOSED_ACCT_CR22 (24.11%), CREDIT_CARD_AMT_CR22 (21.22%) and Cumulative_Delinquency_Exposure (17.93%). Because many of these were genuine high-value observations, I retained them rather than removing them on statistical grounds alone.
+
+Features were selected based on statistical findings, observed behaviour and relevance to default prediction. They were grouped into four categories: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
+
+## 3. Model Development
+
+To address the class imbalance, SMOTE-Tomek was applied after the dataset had been split into training, validation and test sets. Resampling was performed on the training data only, so the validation and test sets remained representative of real conditions.
+
+Three models were trained and evaluated: Random Forest, XGBoost and CatBoost. Decision thresholds were tuned using the validation data. The Bad Debt recall for each model was:
+
+- **Random Forest:** 81.39% (threshold 0.26)
+- **XGBoost:** 74.49% (threshold 0.10)
+- **CatBoost:** 85% (threshold 0.09)
+
+Diagnostics showed no clear signs of overfitting or underfitting in Random Forest or XGBoost. CatBoost, however, showed possible overfitting, with a training-to-validation ROC-AUC gap of 0.0601. The feature importance results from XGBoost were also less consistent with the business context.
+
+Model parameters and evaluation metrics were tracked with MLflow, and the selected model was registered in the Model Registry.
+
+Random Forest was chosen for its overall classification performance and business relevance. It delivered a Bad Debt recall of 81.39%, a ROC-AUC of 0.7377 and a PR-AUC of 0.2620. Its feature importance results pointed to sensible credit-risk indicators, including RISK_SCORE, SCORE_CR22, NO_ADDRESS_AT_MONTHS, OPEN_ACCT_CR22 and CLOSED_ACCT_CR22.
+
+Although CatBoost achieved higher recall, Random Forest offered a better balance between identifying potential bad-debt customers and generalising to new data. This made it the preferred model for further development.
+
