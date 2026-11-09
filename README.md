@@ -91,13 +91,10 @@ CR21 and CR22 credit bureau features were compared across the two customer group
 
 Features were selected based on statistical findings, observed behaviour and relevance to default prediction. They were grouped into four categories: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
 
-I've assumed those are ROC-AUC values, since Random Forest's is 0.7377. Here is the updated section:
 
 ## 3. Model Development
 
-To address class imbalance, SMOTE-Tomek was applied to the training data after splitting the dataset into training, validation and test sets. Validation and test data remained unchanged.
-
-Three models were trained: Random Forest, XGBoost and CatBoost. Decision thresholds were optimised using validation data.
+To address class imbalance, SMOTE-Tomek was applied to the training data after splitting the dataset into training, validation and test sets. Validation and test data remained unchanged.Three models were trained: Random Forest, XGBoost and CatBoost. Decision thresholds were optimised using validation data.
 
 | Model         | Bad Debt Recall | Threshold | ROC-AUC |
 | ------------- | --------------- | --------- | ------- |
@@ -105,9 +102,7 @@ Three models were trained: Random Forest, XGBoost and CatBoost. Decision thresho
 | XGBoost       | 74.49%          | 0.10      | 0.69    |
 | CatBoost      | 85%             | 0.09      | 0.74    |
 
-Random Forest and XGBoost showed no clear signs of overfitting or underfitting. CatBoost showed possible overfitting, with a training-to-validation ROC-AUC gap of 0.0601. XGBoost feature importance was also less aligned with the business context.
-
-Experiments were tracked using MLflow, and the selected model was registered in the Model Registry.
+Random Forest and XGBoost showed no clear signs of overfitting or underfitting. CatBoost showed possible overfitting, with a training-to-validation ROC-AUC gap of 0.0601. XGBoost feature importance that was more consistent with the business context.MLflow was used to track model experiments, compare performance and register the final selected model.
 
 #### **Selected Model: Random Forest**
 
