@@ -60,3 +60,40 @@ In a **Buy Now, Pay Later (BNPL) business**, approving a customer involves asses
 **Feature Selection:** Selected relevant features by considering statistical findings, lending domain knowledge, business relevance and their relationship with default risk. Grouped the selected features into four areas: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
 
 
+### Problem Statement
+
+In a **Buy Now, Pay Later (BNPL) business**, assessing a customer's likelihood of default is essential for making informed lending decisions. Defaults can result in bad debt, revenue loss and cash-flow pressure. However, evaluating credit risk across multiple customer, loan and credit bureau attributes can be challenging without a systematic approach.
+
+This project addresses this challenge by developing a **Machine Learning–based Bad Debt Prediction system** to classify customers based on their likelihood of default, supporting data-driven lending decisions and stronger credit-risk management.
+
+---
+
+### 1. Data Profiling & Preparation
+
+**Dataset Understanding:** Explored approximately **120,000 records across 99 features**, covering customer details, loan information, credit bureau attributes and payment history.
+
+**Data Quality Assessment:** Examined missing values, duplicates, data types and invalid entries. Removed **3,644 duplicate records (3.64%)** during initial cleaning.
+
+**Missing Value Investigation:** Identified **30–40% missingness** in selected features. Analysed missing-value patterns and retained meaningful missing values where they reflected business scenarios or information availability.
+
+**Domain-Level Investigation:** Examined lending-related features to understand their business meaning and relevance to default behaviour.
+
+**Data Integration:** Merged customer, loan, credit bureau and additional information datasets using customer identifiers. Identified **12,611 unmatched customer IDs** in the Additional Information dataset, which were excluded due to the absence of corresponding credit-behaviour records.
+
+**Final Dataset:** Removed a further **4,507 duplicate records** during subsequent processing, resulting in a Credit Risk Master Table containing **91,849 records and 97 features** for analysis and model development.
+
+### 2. Exploratory Data Analysis (EDA)
+
+**Target Variable Analysis:** Analysed the `OUTCOME` variable and identified class imbalance, with approximately **92% Good Debt and 8% Bad Debt**.
+
+**Feature Distribution Analysis:** Explored numerical and categorical features using descriptive statistics, histograms, boxplots and frequency distributions.
+
+**Credit Risk Analysis:** Compared CR21 and CR22 feature distributions to understand differences in credit-related indicators and their association with default behaviour.
+
+**Payment Behaviour Analysis:** Examined repayment patterns, previous defaults and delinquency indicators to identify differences between Good Debt and Bad Debt customers.
+
+**Outlier Analysis:** Used the Interquartile Range (IQR) method to investigate potential outliers. Features with relatively high outlier percentages included `CLOSED_ACCT_CR22` (**24.11%**), `CREDIT_CARD_AMT_CR22` (**21.22%**) and `Cumulative_Delinquency_Exposure` (**17.93%**). Retained genuine high-value observations based on business context rather than removing them solely as statistical outliers.
+
+**Feature Selection:** Selected relevant features based on statistical findings, lending domain knowledge, business relevance and their relationship with default risk. Categorised them into four groups: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
+
+
