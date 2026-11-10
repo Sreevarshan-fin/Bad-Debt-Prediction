@@ -87,16 +87,7 @@ MLflow was used to record and compare the experiments conducted with Random Fore
 
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="50%">
-        <img src="zassets/comparison_model.png" alt="Model Comparison" width="600">
-      </td>
-      <td align="center" width="50%">
         <img src="zassets/registered_table.png" alt="Registered Customers Table" width="600">
-      </td>
-    </tr>
-  </table>
 </div>
 
 
