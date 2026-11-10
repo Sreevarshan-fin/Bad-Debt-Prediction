@@ -53,23 +53,37 @@ Features were selected based on statistical findings, observed behaviour and rel
 
 ## 3. Model Development
 
-SMOTE-Tomek was applied exclusively to the training data after splitting the dataset into training, validation and test sets. Validation and test datasets remained unchanged.Three models were developed and evaluated: Random Forest, XGBoost and CatBoost. Classification thresholds were optimised using validation data.
+After splitting the dataset into training, validation and test sets, SMOTE-Tomek was applied only to the training data to address class imbalance. The validation and test sets were kept unchanged to ensure a fair evaluation of model performance.
 
-| **Model** | **Bad Debt Recall** | **Threshold** | **ROC-AUC** |
-|---|---:|---:|---:|
-| Random Forest | 81.39% | 0.26 | 0.74 |
-| XGBoost | 74.49% | 0.10 | 0.69 |
-| CatBoost | 85.00% | 0.09 | 0.74 |
+Three machine learning models were developed: Random Forest, XGBoost and CatBoost. For each model, the classification threshold was selected using validation data before evaluating the final performance on the test set.
+
+| **Model**     | **Bad Debt Recall** | **Threshold** | **ROC-AUC** | **Precision** |
+| ------------- | ------------------: | ------------: | ----------: | ------------: |
+| Random Forest |              81.39% |          0.26 |      0.7377 |        12.04% |
+| XGBoost       |              74.49% |          0.10 |      0.6892 |        11.40% |
+| CatBoost      |              85.08% |          0.09 |      0.7208 |        11.51% |
 
 #### Selected Model: Random Forest
 
-Random Forest was selected over XGBoost due to its higher Bad Debt recall (81.39% vs. 74.49%) and ROC-AUC (0.74 vs. 0.69). Although CatBoost achieved higher recall (85%), it showed potential overfitting.
-The final Random Forest model achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Key features included `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.**Business Interpretation:** The model achieved 81.39% Bad Debt recall but only 12.04% precision, meaning many Good Debt customers were incorrectly flagged. This highlights the trade-off between reducing credit losses and avoiding unnecessary rejection of creditworthy customers.
+Random Forest was selected as the final model after comparing the results of all three algorithms.
+
+Compared with XGBoost, Random Forest achieved higher Bad Debt recall (81.39% against 74.49%) and a higher ROC-AUC (0.7377 against 0.6892). This indicates that it identified more actual Bad Debt cases and performed better at distinguishing between Good Debt and Bad Debt customers.
+
+CatBoost achieved the highest Bad Debt recall at 85.08%. However, Random Forest recorded a slightly higher ROC-AUC of 0.7377 compared with 0.7208 for CatBoost. CatBoost also showed a larger gap between training and validation performance, suggesting potential overfitting.
+
+Based on these results, Random Forest was chosen because it offered a better overall balance between identifying Bad Debt cases, distinguishing between the two classes and generalising to unseen data.
+
+On the final test set, Random Forest achieved **81.39% Bad Debt recall, 12.04% precision, 20.98% F1-score, 0.7377 ROC-AUC and 0.2620 PR-AUC**, using a classification threshold of 0.26.
+
+The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
+
+**Business Interpretation:** The model identified 81.39% of customers who actually defaulted. However, its precision was 12.04%, meaning that a considerable number of customers flagged as high-risk did not belong to the Bad Debt class. In a BNPL business, this highlights the trade-off between identifying potential defaulters and avoiding unnecessary rejection of customers who may be able to repay their loans.
 
 #### MLflow Experiment Tracking and Model Registry
 
-MLflow was used to track model experiments, compare performance and register the final selected Random Forest model for version management and reproducibility.
+MLflow was used to record and compare the experiments conducted with Random Forest, XGBoost and CatBoost. The model parameters, classification thresholds and test performance metrics were logged for each experiment. All three trained models were also registered in the MLflow Model Registry, with individual model versions maintained for tracking and future reference.
 
 **Screenshots:**
-- MLflow experiment comparison.
-- Registered Random Forest model in Model Registry.
+
+1. MLflow Model Registry showing the three registered models and their versions.
+2. MLflow experiment comparison showing Recall, ROC-AUC and Precision for all three models.
