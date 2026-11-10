@@ -53,25 +53,25 @@ Features were selected based on statistical findings, observed behaviour and rel
 
 ## 3. Model Development
 
-After splitting the dataset into training, validation and test sets, SMOTE-Tomek was applied only to the training data to address class imbalance. The validation and test sets were kept unchanged to ensure a fair evaluation of model performance.
+After splitting the dataset into training, validation and test sets, **SMOTE-Tomek was applied only to the training data** to address class imbalance. The validation and test sets were kept unchanged to ensure a fair evaluation of model performance.
 
-Three machine learning models were developed: Random Forest, XGBoost and CatBoost. For each model, the classification threshold was selected using validation data before evaluating the final performance on the test set.
+Three machine learning models were developed: **Random Forest, XGBoost and CatBoost**. For each model, the classification threshold was selected using validation data before evaluating the final performance on the test set.
 
-| **Model**     | **Bad Debt Recall** | **Threshold** | **ROC-AUC** | **Precision** |
-| ------------- | ------------------: | ------------: | ----------: | ------------: |
-| Random Forest |              81.39% |          0.26 |      0.7377 |        12.04% |
-| XGBoost       |              74.49% |          0.10 |      0.6892 |        11.40% |
-| CatBoost      |              85.08% |          0.09 |      0.7208 |        11.51% |
+| **Model** | **Bad Debt Recall** | **Threshold** | **ROC-AUC** | **Precision** |
+|---|---:|---:|---:|---:|
+| **Random Forest** | **81.39%** | **0.26** | **0.7377** | **12.04%** |
+| XGBoost | 74.49% | 0.10 | 0.6892 | 11.40% |
+| CatBoost | 85.08% | 0.09 | 0.7208 | 11.51% |
 
 #### Selected Model: Random Forest
 
 Random Forest was selected as the final model after comparing the results of all three algorithms.
 
-Compared with XGBoost, Random Forest achieved higher Bad Debt recall (81.39% against 74.49%) and a higher ROC-AUC (0.7377 against 0.6892). This indicates that it identified more actual Bad Debt cases and performed better at distinguishing between Good Debt and Bad Debt customers.
+Compared with XGBoost, Random Forest achieved **higher Bad Debt recall (81.39% against 74.49%)** and a **higher ROC-AUC (0.7377 against 0.6892)**. This indicates that it identified more actual Bad Debt cases and performed better at distinguishing between Good Debt and Bad Debt customers.
 
-CatBoost achieved the highest Bad Debt recall at 85.08%. However, Random Forest recorded a slightly higher ROC-AUC of 0.7377 compared with 0.7208 for CatBoost. CatBoost also showed a larger gap between training and validation performance, suggesting potential overfitting.
+CatBoost achieved the **highest Bad Debt recall at 85.08%**. However, Random Forest recorded a slightly higher **ROC-AUC of 0.7377 compared with 0.7208 for CatBoost**. CatBoost also showed a larger gap between training and validation performance, suggesting potential overfitting.
 
-Based on these results, Random Forest was chosen because it offered a better overall balance between identifying Bad Debt cases, distinguishing between the two classes and generalising to unseen data.
+Based on these results, Random Forest was chosen because it offered a **better overall balance between identifying Bad Debt cases, distinguishing between the two classes and generalising to unseen data**.
 
 On the final test set, Random Forest achieved **81.39% Bad Debt recall, 12.04% precision, 20.98% F1-score, 0.7377 ROC-AUC and 0.2620 PR-AUC**, using a classification threshold of 0.26.
 
