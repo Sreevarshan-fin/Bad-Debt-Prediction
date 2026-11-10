@@ -85,13 +85,7 @@ The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `
 
 MLflow was used to record and compare the experiments conducted with Random Forest, XGBoost and CatBoost. The model parameters, classification thresholds and test performance metrics were logged for each experiment. All three trained models were also registered in the MLflow Model Registry, with individual model versions maintained for tracking and future reference.
 
-
 <div align="center">
-        <img src="zassets/registered_table.png" alt="Registered Customers Table" width="1000">
+  <img src="zassets/registered_table.png" alt="Registered Customers Table" width="100%">
 </div>
 
-
-**Screenshots:**
-
-1. MLflow Model Registry showing the three registered models and their versions.
-2. MLflow experiment comparison showing Recall, ROC-AUC and Precision for all three models.
