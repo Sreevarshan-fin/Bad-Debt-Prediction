@@ -53,9 +53,7 @@ Features were selected based on statistical findings, observed behaviour and rel
 
 ## 3. Model Development
 
-SMOTE-Tomek was applied exclusively to the training data after splitting the dataset into training, validation and test sets. Validation and test datasets remained unchanged.
-
-Three models were developed and evaluated: Random Forest, XGBoost and CatBoost. Classification thresholds were optimised using validation data.
+SMOTE-Tomek was applied exclusively to the training data after splitting the dataset into training, validation and test sets. Validation and test datasets remained unchanged.Three models were developed and evaluated: Random Forest, XGBoost and CatBoost. Classification thresholds were optimised using validation data.
 
 | **Model** | **Bad Debt Recall** | **Threshold** | **ROC-AUC** |
 |---|---:|---:|---:|
@@ -63,15 +61,10 @@ Three models were developed and evaluated: Random Forest, XGBoost and CatBoost. 
 | XGBoost | 74.49% | 0.10 | 0.69 |
 | CatBoost | 85.00% | 0.09 | 0.74 |
 
-Random Forest and XGBoost showed no clear signs of overfitting or underfitting, while CatBoost showed potential overfitting, with a training-to-validation ROC-AUC gap of 0.0601.
-
 #### Selected Model: Random Forest
 
 Random Forest was selected over XGBoost due to its higher Bad Debt recall (81.39% vs. 74.49%) and ROC-AUC (0.74 vs. 0.69). Although CatBoost achieved higher recall (85%), it showed potential overfitting.
-
-The final Random Forest model achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Key features included `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
-
-Business Interpretation: The model achieved 81.39% Bad Debt recall but only 12.04% precision, meaning many Good Debt customers were incorrectly flagged. This highlights the trade-off between reducing credit losses and avoiding unnecessary rejection of creditworthy customers.
+The final Random Forest model achieved **81.39% Bad Debt recall, 0.7377 ROC-AUC and 0.2620 PR-AUC**. Key features included `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.**Business Interpretation:** The model achieved 81.39% Bad Debt recall but only 12.04% precision, meaning many Good Debt customers were incorrectly flagged. This highlights the trade-off between reducing credit losses and avoiding unnecessary rejection of creditworthy customers.
 
 #### MLflow Experiment Tracking and Model Registry
 
