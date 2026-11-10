@@ -79,6 +79,10 @@ The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `
 
 **Business Interpretation:** The model identified 81.39% of customers who actually defaulted. However, its precision was 12.04%, meaning that a considerable number of customers flagged as high-risk did not belong to the Bad Debt class. In a BNPL business, this highlights the trade-off between identifying potential defaulters and avoiding unnecessary rejection of customers who may be able to repay their loans.
 
+<p align="center">
+  <img src="zassets/RF_Confusion_Matrix.png" alt="Bad Debt Prediction" width="900">
+</p>
+
 #### MLflow Experiment Tracking and Model Registry
 
 MLflow was used to record and compare the experiments conducted with Random Forest, XGBoost and CatBoost. The model parameters, classification thresholds and test performance metrics were logged for each experiment. All three trained models were also registered in the MLflow Model Registry, with individual model versions maintained for tracking and future reference.
