@@ -78,11 +78,7 @@ On the final test set, Random Forest achieved **81.39% Bad Debt recall, 12.04% p
 The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
 
 <div align="center">
-  <table>
-    <tr>
-      <td align="center" width="50%">
         <img src="zassets/RF_Confusion_Matrix.png" alt="Random Forest Confusion Matrix" width="450">
-      </td>
 </div>
 
 #### MLflow Experiment Tracking and Model Registry
