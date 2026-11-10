@@ -83,13 +83,6 @@ The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `
       <td align="center" width="50%">
         <img src="zassets/RF_Confusion_Matrix.png" alt="Random Forest Confusion Matrix" width="450">
       </td>
-      <td align="left" width="50%">
-        <strong>Business Interpretation</strong><br><br>
-        The model identified 81.39% of customers who actually defaulted. However, its precision was 12.04%, indicating that many customers flagged as high-risk did not belong to the Bad Debt class.<br><br>
-        In a BNPL business, this highlights the trade-off between identifying potential defaulters and avoiding unnecessary rejection of customers who may be able to repay their loans.
-      </td>
-    </tr>
-  </table>
 </div>
 
 #### MLflow Experiment Tracking and Model Registry
