@@ -81,7 +81,7 @@ The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `
   <img src="zassets/RF_Confusion_Matrix.png" alt="Random Forest Final Test Confusion Matrix" width="750">
 </div>
 
-<p align="center">
+<p align="left">
   <em>Figure: Random Forest final test confusion matrix and business interpretation.</em>
 </p>
 
