@@ -77,11 +77,20 @@ On the final test set, Random Forest achieved **81.39% Bad Debt recall, 12.04% p
 
 The five most influential features identified were `RISK_SCORE`, `SCORE_CR22`, `NO_ADDRESS_AT_MONTHS`, `OPEN_ACCT_CR22` and `CLOSED_ACCT_CR22`.
 
-**Business Interpretation:** The model identified 81.39% of customers who actually defaulted. However, its precision was 12.04%, meaning that a considerable number of customers flagged as high-risk did not belong to the Bad Debt class. In a BNPL business, this highlights the trade-off between identifying potential defaulters and avoiding unnecessary rejection of customers who may be able to repay their loans.
-
-<p align="center">
-  <img src="zassets/RF_Confusion_Matrix.png" alt="Bad Debt Prediction" width="450">
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="50%">
+        <img src="zassets/RF_Confusion_Matrix.png" alt="Random Forest Confusion Matrix" width="450">
+      </td>
+      <td align="left" width="50%">
+        <strong>Business Interpretation</strong><br><br>
+        The model identified 81.39% of customers who actually defaulted. However, its precision was 12.04%, indicating that many customers flagged as high-risk did not belong to the Bad Debt class.<br><br>
+        In a BNPL business, this highlights the trade-off between identifying potential defaulters and avoiding unnecessary rejection of customers who may be able to repay their loans.
+      </td>
+    </tr>
+  </table>
+</div>
 
 #### MLflow Experiment Tracking and Model Registry
 
