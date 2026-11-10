@@ -92,7 +92,7 @@ MLflow was used to record and compare experiments conducted with Random Forest, 
 **Registered Models**
 
 <div align="center">
-  <img src="zassets/registered_models.png" alt="MLflow Registered Models" width="100%">
+  <img src="zassets/registered_table.png" alt="MLflow Registered Models" width="100%">
 </div>
 
 <p align="center">
