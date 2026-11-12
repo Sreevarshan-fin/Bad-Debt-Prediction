@@ -31,6 +31,12 @@ In a **Buy Now, Pay Later business**, understanding how likely a customer is to 
 
 This project set out to build a **machine learning-based Bad Debt Prediction** system that flags customers with a higher likelihood of default. It draws on customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, helping the business make better-informed lending decisions.
 
+####  Primary Objective
+
+The primary objective of this project is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made.
+
+The project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model. The predictions are intended to support risk-based customer assessment and help the business make more informed lending decisions.
+
 ## 1. Data Profiling and Preparation
 
 I began by exploring roughly **110,000 records across 99 features**, covering customer details, loan information, credit bureau attributes and payment history. Data quality was checked for missing values, duplicates, data types and invalid entries. The initial cleaning removed **3,644 duplicate records**.
