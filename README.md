@@ -20,28 +20,13 @@
 
 ------
 
-## Problem Statement
+## 1. Problem Statement
 
-In a **Buy Now, Pay Later business**, understanding how likely a customer is to default on instalment payments is central to managing credit risk. Defaults create bad debt, financial losses and cash-flow pressure.
+Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments. While this provides flexibility to customers, defaults on instalment payments can create bad debt, financial losses and cash-flow challenges for BNPL businesses. Therefore, understanding customer creditworthiness and repayment behaviour is important for managing credit risk.
 
-This project set out to build a **machine learning-based Bad Debt Prediction** system that flags customers with a higher likelihood of default. It draws on customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, helping the business make better-informed lending decisions.
+This project focuses on developing a **machine learning-based Bad Debt Prediction system** to identify customers who are more likely to default on their instalment payments. It uses customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, supporting better-informed lending decisions.
 
-####  Primary Objective
-
-The primary objective of this project is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made.
-
-The project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model. The predictions are intended to support risk-based customer assessment and help the business make more informed lending decisions.
-
-
----
-
-## 1. Business and Domain Understanding
-
-Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments.
-
-For BNPL businesses, customer defaults can result in bad debt, financial losses and cash-flow challenges. Therefore, assessing a customer's creditworthiness and repayment behaviour is essential for effective credit risk management.
-
-This project focuses on identifying customers with a higher likelihood of default using customer, loan, credit bureau and payment history data to support risk-based lending decisions.
+The primary objective is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made. Accordingly, the project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model while supporting risk-based customer assessment.
 
 ## 2. Dataset Description
 
@@ -61,15 +46,6 @@ These datasets were integrated using customer identifiers to create a unified Cr
 - **Good Debt:** Customers classified as non-defaulters.
 - **Bad Debt:** Customers classified as defaulters.
 
-
-## 1. Problem Statement
-
-Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments. While this provides flexibility to customers, defaults on instalment payments can create bad debt, financial losses and cash-flow challenges for BNPL businesses. Therefore, understanding customer creditworthiness and repayment behaviour is important for managing credit risk.
-
-This project focuses on developing a **machine learning-based Bad Debt Prediction system** to identify customers who are more likely to default on their instalment payments. It uses customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, supporting better-informed lending decisions.
-
-The primary objective is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made. Accordingly, the project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model while supporting risk-based customer assessment.
-
 ---
 
 ## 1. Data Profiling and Preparation
@@ -78,7 +54,30 @@ I began by exploring roughly **110,000 records across 99 features**, covering cu
 
 Some features showed **30–40% missingness**. I examined the patterns behind these gaps and kept them where they carried meaning, rather than filling them in by default. Lending-related features were also reviewed to understand their characteristics and their relevance to default prediction.
 
-The customer, loan, credit bureau and supplementary datasets were then merged using customer identifiers. This excluded **12,611** unmatched customer IDs, and a further **1,896 unmatched records** were removed during validation. The resulting Credit Risk Master Table held **91,849** records and **99** features, and formed the basis for all later analysis and modelling.
+**I removed SCORE_INDICATOR_CR22 because it showed non-monotonic behavior, where higher scores were associated with higher default risk, violating credit-risk principles.
+Since it lacked business interpretability and stability, it was excluded to avoid misleading the model.**
+ # Collection info
+    'AGENCY_AMT',
+    'MTH_TILL_AGENCY'
+The customer, loan, credit bureau and supplementary datasets were then merged using customer identifiers. This excluded **12,611** unmatched customer IDs, and a further **1,896 unmatched records** were removed during validation. The resulting Credit Risk Master Table held **91,849** records and **89** features, and formed the basis for all later analysis and modelling.
+
+
+## 1. Data Profiling and Preparation
+
+I started by exploring approximately **110,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history. The initial analysis focused on understanding the data quality, including missing values, duplicate records, data types and invalid entries. During this process, **3,644 duplicate records** were identified and removed.
+
+Some features had a considerable amount of missing data, with missing values ranging from **30–40%** in certain columns. Rather than removing all such features or filling missing values blindly, I examined their patterns and retained those that still provided useful information for credit risk assessment.
+
+However, six features — `WORST_1M`, `WORST_3M`, `WORST_6M`, `WORST_12M`, `WORST_18M` and `WORST_24M` — had approximately **90% missing values** and offered limited additional information. I decided to remove them from the analysis.
+
+I also excluded `SCORE_INDICATOR_CR22` after observing a non-monotonic relationship with default risk, where higher scores were associated with higher default rates. Since this behaviour was difficult to interpret from a credit risk perspective and raised concerns about the feature's reliability, I decided not to include it in the modelling process.
+
+Collection-related variables, including `AGENCY_AMT` and `MTH_TILL_AGENCY`, were also reviewed as part of the feature assessment.
+
+After the initial cleaning and feature assessment, the customer, loan, credit bureau and supplementary datasets were merged using customer identifiers. This resulted in **12,611 unmatched customer IDs** being excluded, followed by the removal of another **1,896 unmatched records** during validation.
+
+After these steps, the consolidated Credit Risk Master Table contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
+
 
 ## 2. Exploratory Data Analysis (EDA)
 
