@@ -56,9 +56,9 @@ Some features had a considerable amount of missing data, with missing values ran
 
 However, six features — **`WORST_1M`, `WORST_3M`, `WORST_6M`, `WORST_12M`, `WORST_18M` and `WORST_24M`** — had approximately **90% missing values** and offered limited additional information. I decided to remove them from the analysis.
 
-I also excluded `SCORE_INDICATOR_CR22` after observing a non-monotonic relationship with default risk, where higher scores were associated with higher default rates. Since this behaviour was difficult to interpret from a credit risk perspective and raised concerns about the feature's reliability, I decided not to include it in the modelling process.
+I also excluded **`SCORE_INDICATOR_CR22`** after observing a non-monotonic relationship with default risk, where higher scores were associated with higher default rates. Since this behaviour was difficult to interpret from a credit risk perspective and raised concerns about the feature's reliability, I decided not to include it in the modelling process.
 
-Collection-related variables, including `AGENCY_AMT` and `MTH_TILL_AGENCY`, were also reviewed as part of the feature assessment.
+Collection-related variables, including **`AGENCY_AMT` and `MTH_TILL_AGENCY`**, were also reviewed as part of the feature assessment.
 
 After the initial cleaning and feature assessment, the customer, loan, credit bureau and supplementary datasets were merged using customer identifiers. This resulted in **12,611 unmatched customer IDs** being excluded, followed by the removal of another **1,896 unmatched records** during validation.
 
