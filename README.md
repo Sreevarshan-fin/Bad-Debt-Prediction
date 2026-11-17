@@ -61,6 +61,15 @@ These datasets were integrated using customer identifiers to create a unified Cr
 - **Good Debt:** Customers classified as non-defaulters.
 - **Bad Debt:** Customers classified as defaulters.
 
+
+## 1. Problem Statement
+
+Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments. While this provides flexibility to customers, defaults on instalment payments can create bad debt, financial losses and cash-flow challenges for BNPL businesses. Therefore, understanding customer creditworthiness and repayment behaviour is important for managing credit risk.
+
+This project focuses on developing a **machine learning-based Bad Debt Prediction system** to identify customers who are more likely to default on their instalment payments. It uses customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, supporting better-informed lending decisions.
+
+The primary objective is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made. Accordingly, the project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model while supporting risk-based customer assessment.
+
 ---
 
 ## 1. Data Profiling and Preparation
