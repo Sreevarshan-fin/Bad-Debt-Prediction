@@ -32,6 +32,37 @@ The primary objective of this project is to **minimise potential financial losse
 
 The project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model. The predictions are intended to support risk-based customer assessment and help the business make more informed lending decisions.
 
+
+---
+
+## 1. Business and Domain Understanding
+
+Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments.
+
+For BNPL businesses, customer defaults can result in bad debt, financial losses and cash-flow challenges. Therefore, assessing a customer's creditworthiness and repayment behaviour is essential for effective credit risk management.
+
+This project focuses on identifying customers with a higher likelihood of default using customer, loan, credit bureau and payment history data to support risk-based lending decisions.
+
+## 2. Dataset Description
+
+The project uses multiple datasets containing approximately **110,000 initial records and 99 features**, covering four major information categories.
+
+| Dataset Category | Description |
+|---|---|
+| Customer Data | Customer profiles and personal information. |
+| Loan Data | Loan details, amounts and repayment-related information. |
+| Credit Bureau Data | Credit scores, credit enquiries, account history and outstanding credit exposure. |
+| Payment History Data | Previous repayments, defaults and delinquency behaviour. |
+
+These datasets were integrated using customer identifiers to create a unified Credit Risk Master Table containing **91,849 records and 99 features**.
+
+**Target Variable:** `OUTCOME`
+
+- **Good Debt:** Customers classified as non-defaulters.
+- **Bad Debt:** Customers classified as defaulters.
+
+---
+
 ## 1. Data Profiling and Preparation
 
 I began by exploring roughly **110,000 records across 99 features**, covering customer details, loan information, credit bureau attributes and payment history. Data quality was checked for missing values, duplicates, data types and invalid entries. The initial cleaning removed **3,644 duplicate records**.
