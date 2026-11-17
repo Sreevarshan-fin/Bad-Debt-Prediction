@@ -65,15 +65,31 @@ After the initial cleaning and feature assessment, the customer, loan, credit bu
 After these steps, the consolidated **Credit Risk Master Table** contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
 
 
+## 2. Data Splitting and Leakage Prevention
+
+Before performing exploratory data analysis and making feature-related decisions, I split the dataset into **75% training data and 25% testing data**.
+
+This was done to prevent data leakage and ensure that information from the test set did not influence exploratory analysis, feature selection or preprocessing decisions. The training set was used for data exploration, feature analysis and model development, while the test set was kept separate for final model evaluation.
+
+This approach helped maintain an independent test dataset and provided a more reliable assessment of how the model performs on unseen data.
+
+
+
 ## 2. Exploratory Data Analysis (EDA)
 
-The OUTCOME variable showed clear class imbalance, with about **92% of customers classed as Good Debt and 8% as Bad Debt**. Numerical and categorical features were examined through descriptive statistics, histograms, boxplots and frequency distributions to understand their patterns.
+I started by examining the distribution of the target variable, `OUTCOME`, which revealed a significant class imbalance. Approximately **92% of customers belonged to Good Debt and 8% to Bad Debt**. I also explored numerical and categorical features using descriptive statistics, histograms, boxplots and frequency distributions to understand the underlying patterns in the data.
 
-CR21 and CR22 credit bureau features were compared across the two customer groups, and several CR22 features showed a clearer difference in medians. Repayment patterns, previous defaults and delinquency indicators were also reviewed to see how payment behaviour differed between Good Debt and Bad Debt customers.
+I compared the **CR21 and CR22 credit bureau features** across Good Debt and Bad Debt customers using box plots to understand how their distributions and median values differed between the two groups. The comparison showed more noticeable differences in several CR22 features, making them more relevant for further credit risk analysis. Based on these observations, I selected relevant CR22 features for subsequent analysis and model development.
 
-**Outliers** were assessed using the Interquartile Range (IQR) method. The highest outlier percentages appeared in **CLOSED_ACCT_CR22 (24.11%), CREDIT_CARD_AMT_CR22 (21.22%) and Cumulative_Delinquency_Exposure (17.93%)**. Because many of these were genuine high-value observations, I retained them rather than removing them on statistical grounds alone.
+I also examined previous defaults, repayment patterns and delinquency indicators to understand how customer payment behaviour differed between Good Debt and Bad Debt customers.
 
-Features were selected based on statistical findings, observed behaviour and relevance to default prediction. They were grouped into four categories: Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile.
+To understand the relationship between credit exposure and repayment behaviour, I examined scatter plots involving features such as `RISK_SCORE`, `SCORE_CR22`, delinquency counts and payment irregularity indicators against `CREDIT_CARD_AMT_CR22`, `OVERDRAFT_AMT_CR22`, `DEFAULT_AMT` and `DEFAULT_UNPAID_AMT_CR22`.
+
+The plots showed that these **relationships were not always linear**. Some customers had relatively low outstanding or default amounts but still displayed high-risk payment behavior. Similarly, higher credit exposure did not necessarily mean a proportionately higher risk of default. This suggested that default risk was influenced by a combination of credit history, repayment behavior and credit exposure rather than any single feature.
+
+I also examined **outliers using the Interquartile Range (IQR) method**. The highest outlier percentages were found in `CLOSED_ACCT_CR22` (24.11%), `CREDIT_CARD_AMT_CR22` (21.22%) and `Cumulative_Delinquency_Exposure` (17.93%). After reviewing these features, I retained the outliers because many represented genuine customer credit and payment behaviour rather than data errors.
+
+Based on these findings, I assessed the features according to their statistical patterns, observed behaviour and relevance to credit risk. For further analysis, they were organised into four categories: **Credit Risk, Payment Behaviour, Credit Exposure and Customer Profile**.
 
 
 
