@@ -67,7 +67,7 @@ After these steps, the consolidated **Credit Risk Master Table** contained **91,
 
 ## 2. Exploratory Data Analysis (EDA)
 
-The OUTCOME variable showed clear class imbalance, with about **92% of customers classed as Good Debt and 8%** as Bad Debt. Numerical and categorical features were examined through descriptive statistics, histograms, boxplots and frequency distributions to understand their patterns.
+The OUTCOME variable showed clear class imbalance, with about **92% of customers classed as Good Debt and 8% as Bad Debt**. Numerical and categorical features were examined through descriptive statistics, histograms, boxplots and frequency distributions to understand their patterns.
 
 CR21 and CR22 credit bureau features were compared across the two customer groups, and several CR22 features showed a clearer difference in medians. Repayment patterns, previous defaults and delinquency indicators were also reviewed to see how payment behaviour differed between Good Debt and Bad Debt customers.
 
