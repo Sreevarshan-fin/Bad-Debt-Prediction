@@ -75,7 +75,7 @@ This approach helped maintain an independent test dataset and provided a more re
 
 
 
-## 2. Exploratory Data Analysis (EDA)
+## 3. Exploratory Data Analysis (EDA)
 
 I started by examining the distribution of the target variable, `OUTCOME`, which revealed a significant class imbalance. Approximately **92% of customers belonged to Good Debt and 8% to Bad Debt**. I also explored numerical and categorical features using descriptive statistics, histograms, boxplots and frequency distributions to understand the underlying patterns in the data.
 
