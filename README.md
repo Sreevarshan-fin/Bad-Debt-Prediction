@@ -54,7 +54,7 @@ I started by exploring approximately **110,000 records with 99 features**, cover
 
 Some features had a considerable amount of missing data, with missing values ranging from **30–40%** in certain columns. Rather than removing all such features or filling missing values blindly, I examined their patterns and retained those that still provided useful information for credit risk assessment.
 
-However, six features — `WORST_1M`, `WORST_3M`, `WORST_6M`, `WORST_12M`, `WORST_18M` and `WORST_24M` — had approximately **90% missing values** and offered limited additional information. I decided to remove them from the analysis.
+However, six features — **`WORST_1M`, `WORST_3M`, `WORST_6M`, `WORST_12M`, `WORST_18M` and `WORST_24M`** — had approximately **90% missing values** and offered limited additional information. I decided to remove them from the analysis.
 
 I also excluded `SCORE_INDICATOR_CR22` after observing a non-monotonic relationship with default risk, where higher scores were associated with higher default rates. Since this behaviour was difficult to interpret from a credit risk perspective and raised concerns about the feature's reliability, I decided not to include it in the modelling process.
 
@@ -62,7 +62,7 @@ Collection-related variables, including `AGENCY_AMT` and `MTH_TILL_AGENCY`, were
 
 After the initial cleaning and feature assessment, the customer, loan, credit bureau and supplementary datasets were merged using customer identifiers. This resulted in **12,611 unmatched customer IDs** being excluded, followed by the removal of another **1,896 unmatched records** during validation.
 
-After these steps, the consolidated Credit Risk Master Table contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
+After these steps, the consolidated **Credit Risk Master Table** contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
 
 
 ## 2. Exploratory Data Analysis (EDA)
