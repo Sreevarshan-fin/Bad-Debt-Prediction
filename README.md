@@ -50,20 +50,6 @@ These datasets were integrated using customer identifiers to create a unified Cr
 
 ## 1. Data Profiling and Preparation
 
-I began by exploring roughly **110,000 records across 99 features**, covering customer details, loan information, credit bureau attributes and payment history. Data quality was checked for missing values, duplicates, data types and invalid entries. The initial cleaning removed **3,644 duplicate records**.
-
-Some features showed **30–40% missingness**. I examined the patterns behind these gaps and kept them where they carried meaning, rather than filling them in by default. Lending-related features were also reviewed to understand their characteristics and their relevance to default prediction.
-
-**I removed SCORE_INDICATOR_CR22 because it showed non-monotonic behavior, where higher scores were associated with higher default risk, violating credit-risk principles.
-Since it lacked business interpretability and stability, it was excluded to avoid misleading the model.**
- # Collection info
-    'AGENCY_AMT',
-    'MTH_TILL_AGENCY'
-The customer, loan, credit bureau and supplementary datasets were then merged using customer identifiers. This excluded **12,611** unmatched customer IDs, and a further **1,896 unmatched records** were removed during validation. The resulting Credit Risk Master Table held **91,849** records and **89** features, and formed the basis for all later analysis and modelling.
-
-
-## 1. Data Profiling and Preparation
-
 I started by exploring approximately **110,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history. The initial analysis focused on understanding the data quality, including missing values, duplicate records, data types and invalid entries. During this process, **3,644 duplicate records** were identified and removed.
 
 Some features had a considerable amount of missing data, with missing values ranging from **30–40%** in certain columns. Rather than removing all such features or filling missing values blindly, I examined their patterns and retained those that still provided useful information for credit risk assessment.
