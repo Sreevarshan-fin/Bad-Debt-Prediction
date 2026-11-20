@@ -22,7 +22,7 @@
 
 ## 1. Problem Statement 
 
-n the current business process, products or services are sometimes sold to customers who later default on payments, leading to **bad debts and financial losses**. These defaults not only impact revenue but also affect **cash flow and risk management**. Presently, there is no predictive system in place to **assess the creditworthiness or payment behavior** of a customer before the sale is made.
+In the current business process, products or services are sometimes sold to customers who later default on payments, leading to **bad debts and financial losses**. These defaults not only impact revenue but also affect **cash flow and risk management**. Presently, there is no predictive system in place to **assess the creditworthiness or payment behavior** of a customer before the sale is made.
 To address this issue, the project aims to develop a **predictive machine learning model** that can **identify potential bad debts in advance**, using historical customer and transaction data. By analyzing patterns in past purchases, payment behaviors, credit scores, and other related features, the model will enable the business to make data-driven decisions on whether to approve or reject a sale, thereby **minimizing financial risk** and improving overall profitability
 
 ---
