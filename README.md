@@ -34,21 +34,16 @@ To reduce losses from customers defaulting on loans, this project aims to identi
   
 - **Data Quality Assessment** – Examined the initial dataset for data types, missing values, duplicate records and incorrect entries. Identified and removed **3,644 duplicate records**.
 
-- **Missing Data** - Approximately, there are **30-40%** of missing data was present in some variables. However, it was considered whether the missing data could be useful to understand credit risk and no          immediately removing all variables with missing data. However, **8 variables** had approximately **90%** missing data.These were removed due to little extra useful information being provided by the              variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of default. As higher scores corresponded to higher default risks, this         variable was removed. 
+- **Missing Values:** Within the dataset, between **30-40%** of missing values were present. However, it was considered whether the missing values could provide useful information with regards to credit risk. Variables with missing values were therefore not immediately removed. However, **8 variables** had approximately **90%** missing values. These variables were removed as little additional useful information was provided by them. Upon analysis it was found that variable ‘ SCORE_INDICATOR_CR22’ did not fit logically with default risk. The higher the score, the higher the risk of default so this variable was removed.
   
 - **Dataset Integration and Validation**- Data from the customer, loan, credit bureau and general information was merged according to customer identifier. During combination, **12,611**    customer identifiers were not found in all datasets. Therefore, these were removed. Further validation was performed on individual observations. This meant additional **1,896** observations were removed.
 
-After this process 91,849 observations and 89 variables remained in a single Credit Risk Master Table.
+After this process **91,849 observations and 89 variables** remained in a single Credit Risk Master Table.
 
 ## 2. Data Splitting and Leakage Prevention
 
-Before performing exploratory data analysis and making feature-related decisions, I split the dataset into **75% training data and 25% testing data**.
-
-This was done to prevent data leakage and ensure that information from the test set did not influence exploratory analysis, feature selection or preprocessing decisions. The training set was used for data exploration, feature analysis and model development, while the test set was kept separate for final model evaluation.
-
-This approach helped maintain an independent test dataset and provided a more reliable assessment of how the model performs on unseen data.
-
-
+Split into a **test set (25%) and training set (75%)**. This ensured **no data leakage** occurred. The test set was not used at all during data exploration, features selection and preprocessing. The training set was used to perform data exploration, features analysis and model building. However, only the test set was used to evaluate the model's performance.
+This means we have an independent test set which allows us to get a more accurate indication of how well the model would work with new da
 
 ## 3. Exploratory Data Analysis (EDA)
 
