@@ -32,14 +32,13 @@ The primary objective is to **minimise potential financial losses caused by cust
 
 ## 1. Data Profiling and Preparation
 
-- **Dataset Description** - The project uses approximately 110,000 records and 99 features across customer, loan, credit bureau and payment history datasets. These were integrated using customer identifiers to
-    create a Credit Risk Master Table.
+- **Dataset Description** - The project uses approximately **110,000 records and 99 features** across customer, loan, credit bureau and payment history datasets. These were integrated using customer identifiers to create a Credit Risk Master Table.
   
-- **Data Quality Assessment** – Examined the initial dataset for data types, missing values, duplicate records and incorrect entries. Identified and removed 3,644 duplicate records.
+- **Data Quality Assessment** – Examined the initial dataset for data types, missing values, duplicate records and incorrect entries. Identified and removed **3,644 duplicate records**.
 
-- **Missing Data** - It can be seen that within the data there is a large amount of missing data present. Approximately, there are 30-40% of missing data was present in some variables. However, it was              considered whether the missing data could be useful to understand credit risk and not immediately removing all variables with missing data.However, **8 variables** had approximately 90% missing data. These      were removed due to little extra useful information being provided by the variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of    default. As higher scores corresponded to higher default risks,this variable was removed. 
+- **Missing Data** - It can be seen that within the data there is a large amount of missing data present. Approximately, there are **30-40%** of missing data was present in some variables. However, it was          considered whether the missing data could be useful to understand credit risk and not immediately removing all variables with missing data. However, **8 variables** had approximately **90%** missing data.       These were removed due to little extra useful information being provided by the variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the      risk of default. As higher scores corresponded to higher default risks,this variable was removed. 
   
-- **Dataset Integration and Validation**- Datasets relating to customers, loans, credit bureau information, and additional information were combined based on customer identifiers. During combination, 12,611          customer identifiers were not found in all datasets. Therefore, these were removed.Further validation was performed on individual observations. This meant an additional 1,896 observations were removed.
+- **Dataset Integration and Validation**- Datasets relating to customers, loans, credit bureau information, and additional information were combined based on customer identifiers. During combination, **12,611**    customer identifiers were not found in all datasets. Therefore, these were removed. Further validation was performed on individual observations. This meant additional **1,896** observations were removed.
 
     As a result, a single **Credit Risk Master Table**was created containing **91,849 observations, and 89 variables.**
 
