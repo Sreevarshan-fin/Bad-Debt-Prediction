@@ -20,27 +20,25 @@
 
 ------
 
-## 1. Problem Statement
+## 1. Problem Statement --- 92% 
 
-Buy Now, Pay Later (BNPL) is a short-term financing model that allows customers to purchase products or services and repay the amount through scheduled instalments. While this provides flexibility to customers, defaults on instalment payments can create **bad debt, financial losses and cash-flow challenges** for BNPL businesses. Therefore, understanding customer creditworthiness and repayment behaviour is important for managing credit risk.
-
-This project focuses on developing a **machine learning-based Bad Debt Prediction system** to identify customers who are more likely to default on their instalment payments. It uses customer details, loan information, credit bureau data and payment history to classify customers as **Good Debt or Bad Debt**, supporting better-informed lending decisions.
-
-The primary objective is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made. Accordingly, the project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model while supporting risk-based customer assessment.
+Buy Now Pay Later (BNPL) provides flexible payment options to consumers. However, consumer failure to meet payment instalments causes **‘bad debt’, financial loss and cash flow issues** for BNPL providers. Therefore, accurately assessing consumer credit risk profiles is important.
+In this project, a machine learning based Bad Debt Prediction model is developed. The model takes information about consumers, loan details, credit report data and payment history to predict whether a customer will be either ‘Good Debt’ or ‘Bad Debt’. This information can be used to inform lending decisions.
+To reduce losses from customers defaulting on loans, this project aims to identify as many **high risk customers** as possible. As a result, this project prioritizes having a **high bad debt recall value** to ensure we miss out on as few actual defaulters as possible. This allows for informed risk based lending decisions to be made.
 
 ---
 
-## 1. Data Profiling and Preparation
+## 1. Data Profiling and Preparation -- 94% 
 
-- **Dataset Description** - The project uses approximately **110,000 records and 99 features** across customer, loan, credit bureau and payment history datasets. These were integrated using customer identifiers to create a Credit Risk Master Table.
+- **Dataset Description** - The data comprises 110,000 observations and 99 variables. Data has been merged from different sources (customer, loan, credit bureau details and payment histories) to create a Credit Risk Master Table.
   
 - **Data Quality Assessment** – Examined the initial dataset for data types, missing values, duplicate records and incorrect entries. Identified and removed **3,644 duplicate records**.
 
-- **Missing Data** - It can be seen that within the data there is a large amount of missing data present. Approximately, there are **30-40%** of missing data was present in some variables. However, it was          considered whether the missing data could be useful to understand credit risk and not immediately removing all variables with missing data. However, **8 variables** had approximately **90%** missing data.       These were removed due to little extra useful information being provided by the variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the      risk of default. As higher scores corresponded to higher default risks,this variable was removed. 
+- **Missing Data** - Approximately, there are **30-40%** of missing data was present in some variables. However, it was considered whether the missing data could be useful to understand credit risk and no          immediately removing all variables with missing data. However, **8 variables** had approximately **90%** missing data.These were removed due to little extra useful information being provided by the              variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of default. As higher scores corresponded to higher default risks, this         variable was removed. 
   
-- **Dataset Integration and Validation**- Datasets relating to customers, loans, credit bureau information, and additional information were combined based on customer identifiers. During combination, **12,611**    customer identifiers were not found in all datasets. Therefore, these were removed. Further validation was performed on individual observations. This meant additional **1,896** observations were removed.
+- **Dataset Integration and Validation**- Data from the customer, loan, credit bureau and general information was merged according to customer identifier. During combination, **12,611**    customer identifiers were not found in all datasets. Therefore, these were removed. Further validation was performed on individual observations. This meant additional **1,896** observations were removed.
 
-    As a result, a single **Credit Risk Master Table**was created containing **91,849 observations, and 89 variables.**
+After this process 91,849 observations and 89 variables remained in a single Credit Risk Master Table.
 
 ## 2. Data Splitting and Leakage Prevention
 
