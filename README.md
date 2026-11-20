@@ -65,6 +65,19 @@ After the initial cleaning and feature assessment, the customer, loan, credit bu
 After these steps, the consolidated **Credit Risk Master Table** contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
 
 
+- **Number of Observations** - A total of 110,000 observations (99 variables) was explored.The following features of the data were analysed in order to understand the quality of the dataset: data types, missing data, duplicate data, and incorrect data.Within the data, 3,644 observations of duplicate data were identified and removed.
+
+- **Missing Data** - It can be seen that within the data there is a large amount of missing data present. Approximately, there are 30-40% of missing data was present in some variables. However, it was considered whether the missing data could be useful to understand credit risk and not immediately removing all variables with missing data.
+    
+However, six variables — `WORST_1M, WORST_3M, WORST_6M, WORST_12M, WORST_18M and   WORST_24M` --- had approximately 90% missing data. These were removed due to little extra useful information being provided by  the variables. 
+
+After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of default. As higher scores corresponded to higher default risks, this variable was removed. Collection-related variables, including AGENCY_AMT and MTH_TILL_AGENCY, were also reviewed as part of the feature assessment.  
+
+- **Combining Datasets and Validating**- Datasets relating to customers, loans, credit bureau information, and additional information were combined based on customer identifiers. During combination, 12,611 customer identifiers were not found in all datasets. Therefore, these were removed.Further validation was performed on individual observations. This meant an additional 1,896 observations were removed.
+
+As a result, a single Credit Risk Master Table was created containing 91,849 observations, and 89 variables.
+
+
 ## 2. Data Splitting and Leakage Prevention
 
 Before performing exploratory data analysis and making feature-related decisions, I split the dataset into **75% training data and 25% testing data**.
