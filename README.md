@@ -20,11 +20,10 @@
 
 ------
 
-## 1. Problem Statement --- 92% 
+## 1. Problem Statement 
 
-Buy Now Pay Later (BNPL) provides flexible payment options to consumers. However, consumer failure to meet payment instalments causes **‘bad debt’, financial loss and cash flow issues** for BNPL providers. Therefore, accurately assessing consumer credit risk profiles is important.
-In this project, a machine learning based Bad Debt Prediction model is developed. The model takes information about consumers, loan details, credit report data and payment history to predict whether a customer will be either ‘Good Debt’ or ‘Bad Debt’. This information can be used to inform lending decisions.
-To reduce losses from customers defaulting on loans, this project aims to identify as many **high risk customers** as possible. As a result, this project prioritizes having a **high bad debt recall value** to ensure we miss out on as few actual defaulters as possible. This allows for informed risk based lending decisions to be made.
+n the current business process, products or services are sometimes sold to customers who later default on payments, leading to **bad debts and financial losses**. These defaults not only impact revenue but also affect **cash flow and risk management**. Presently, there is no predictive system in place to **assess the creditworthiness or payment behavior** of a customer before the sale is made.
+To address this issue, the project aims to develop a **predictive machine learning model** that can **identify potential bad debts in advance**, using historical customer and transaction data. By analyzing patterns in past purchases, payment behaviors, credit scores, and other related features, the model will enable the business to make data-driven decisions on whether to approve or reject a sale, thereby **minimizing financial risk** and improving overall profitability
 
 ---
 
