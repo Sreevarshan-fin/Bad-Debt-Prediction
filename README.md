@@ -28,58 +28,19 @@ This project focuses on developing a **machine learning-based Bad Debt Predictio
 
 The primary objective is to **minimise potential financial losses caused by customer defaults** by identifying as many high-risk customers as possible before lending decisions are made. Accordingly, the project prioritises **high Bad Debt recall** to reduce the number of actual defaulters missed by the model while supporting risk-based customer assessment.
 
-## 2. Dataset Description
-
-The project uses multiple datasets containing approximately **110,000 initial records and 99 features**, covering four major information categories.
-
-| Dataset Category | Description |
-|---|---|
-| Customer Data | Customer profiles and personal information. |
-| Loan Data | Loan details, amounts and repayment-related information. |
-| Credit Bureau Data | Credit scores, credit enquiries, account history and outstanding credit exposure. |
-| Payment History Data | Previous repayments, defaults and delinquency behaviour. |
-
-These datasets were integrated using customer identifiers to create a unified Credit Risk Master Table containing **91,849 records and 99 features**.
-
-**Target Variable:** `OUTCOME`
-
-- **Good Debt:** Customers classified as non-defaulters.
-- **Bad Debt:** Customers classified as defaulters.
-
 ---
 
 ## 1. Data Profiling and Preparation
 
-- **Number of Observations** - A total of 110,000 observations (99 variables) was explored.The following features of the data were analysed in order to understand the quality of the dataset: data types, missing     data, duplicate data, and incorrect data.Within the data, 3,644 observations of duplicate data were identified and removed.
-
+- **Dataset Description** - The project uses approximately 110,000 records and 99 features across customer, loan, credit bureau and payment history datasets. These were integrated using customer identifiers to
+    create a Credit Risk Master Table.
+- **Number of Observations** - A total of 110,000 observations and 99 features was explored. The following features of the data were analyzed in order to understand the quality of the dataset: data types,
+    missing data, duplicate data, and incorrect data. Within the data, 3,644 observations of duplicate data were identified and removed.
 - **Missing Data** - It can be seen that within the data there is a large amount of missing data present. Approximately, there are 30-40% of missing data was present in some variables. However, it was              considered whether the missing data could be useful to understand credit risk and not immediately removing all variables with missing data.
-    
-  However, six variables — `WORST_1M, WORST_3M, WORST_6M, WORST_12M, WORST_18M and   WORST_24M` --- had approximately 90% missing data. These were removed due to little extra useful information being provided     by  the variables. 
-
-  After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of default. As higher scores corresponded to higher default risks, this variable was       removed. Collection-related variables, including AGENCY_AMT and MTH_TILL_AGENCY, were also reviewed as part of the feature assessment.  
-
+   However, six variables — `WORST_1M, WORST_3M, WORST_6M, WORST_12M, WORST_18M and   WORST_24M` --- had approximately 90% missing data. These were removed due to little extra useful information being provided     by the variables. After analysis, it was found that the variable `SCORE_INDICATOR_CR22` did not have a logical relationship with the risk of default. As higher scores corresponded to higher default             risks,this variable was removed. Collection-related variables, including AGENCY_AMT and MTH_TILL_AGENCY, were also reviewed as part of the feature assessment.  
 - **Combining Datasets and Validating**- Datasets relating to customers, loans, credit bureau information, and additional information were combined based on customer identifiers. During combination, 12,611          customer identifiers were not found in all datasets. Therefore, these were removed.Further validation was performed on individual observations. This meant an additional 1,896 observations were removed.
 
     As a result, a single **Credit Risk Master Table**was created containing **91,849 observations, and 89 variables.**
-
-
-
-I started by exploring approximately **110,000 records with 99 features**, covering customer details, loan information, credit bureau data and payment history. The initial analysis focused on understanding the data quality, including missing values, duplicate records, data types and invalid entries. During this process, **3,644 duplicate records** were identified and removed.
-
-Some features had a considerable amount of missing data, with missing values ranging from **30–40%** in certain columns. Rather than removing all such features or filling missing values blindly, I examined their patterns and retained those that still provided useful information for credit risk assessment.
-
-However, six features — **`WORST_1M`, `WORST_3M`, `WORST_6M`, `WORST_12M`, `WORST_18M` and `WORST_24M`** — had approximately **90% missing values** and offered limited additional information. I decided to remove them from the analysis.
-
-I also excluded **`SCORE_INDICATOR_CR22`** after observing a non-monotonic relationship with default risk, where higher scores were associated with higher default rates. Since this behaviour was difficult to interpret from a credit risk perspective and raised concerns about the feature's reliability, I decided not to include it in the modelling process.
-
-Collection-related variables, including **`AGENCY_AMT` and `MTH_TILL_AGENCY`**, were also reviewed as part of the feature assessment.
-
-After the initial cleaning and feature assessment, the customer, loan, credit bureau and supplementary datasets were merged using customer identifiers. This resulted in **12,611 unmatched customer IDs** being excluded, followed by the removal of another **1,896 unmatched records** during validation.
-
-After these steps, the consolidated **Credit Risk Master Table** contained **91,849 records and 89 features**. This dataset was then used for the subsequent exploratory data analysis and model development.
-
-
-
 
 ## 2. Data Splitting and Leakage Prevention
 
